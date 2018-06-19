@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "habits")
-data class Habit(@PrimaryKey(autoGenerate = true) var id: Long,
+data class Habit(@PrimaryKey(autoGenerate = true) var id: Int,
                  var name: String,
                  var question: String,
                  var color: Int,
