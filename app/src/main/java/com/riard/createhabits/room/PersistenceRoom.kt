@@ -4,11 +4,7 @@ import android.content.Context
 import com.riard.createhabits.entity.Habit
 
 class PersistenceRoom(context: Context) : PersistenceHabit {
-    private val dao: HabitsDao
-    init {
-        dao = HabitsRoomDatabase.getInstance(context)!!.habitsDao()
-    }
-
+    private val dao: HabitsDao = HabitsRoomDatabase.getInstance(context)!!.habitsDao()
 
     override fun getAllItems(): List<Habit> = dao.getListHabits()
 
