@@ -7,7 +7,7 @@ import android.arch.persistence.room.TypeConverters
 import android.content.Context
 import com.riard.createhabits.entity.Habit
 
-@Database(entities = arrayOf(Habit::class), version = 1)
+@Database(entities = [(Habit::class)], version = 1)
 @TypeConverters(Converter::class)
 abstract class HabitsRoomDatabase : RoomDatabase() {
 
@@ -19,7 +19,7 @@ abstract class HabitsRoomDatabase : RoomDatabase() {
         fun getInstance(context: Context): HabitsRoomDatabase? {
             if (INSTANCE == null) {
                 synchronized(HabitsRoomDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                    INSTANCE = Room.databaseBuilder(context.applicationContext,
                             HabitsRoomDatabase::class.java, "create_habits.db")
                             .build()
                 }
