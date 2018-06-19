@@ -1,9 +1,7 @@
 package com.riard.createhabits.room
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.lifecycle.LiveData
+import android.arch.persistence.room.*
 import com.riard.createhabits.entity.Habit
 
 @Dao
@@ -19,6 +17,8 @@ interface HabitsDao {
     fun getListHabits() : List<Habit>
 
     @Query("select * from habits where id= :id")
-    fun getHabitById(id: Long) : Habit
+    fun getHabitById(id: Int) : Habit
 
+    @Update
+    fun update(habit: Habit)
 }
